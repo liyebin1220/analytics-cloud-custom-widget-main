@@ -144,12 +144,13 @@ var getScriptPromisify = (src) => {
 
       const that = this;
       this._echart.on('click', (params) => {
-        console.log("params: ", params)
+        console.log("params: ", params)        
+        
+        const dataType = params.dataType;
         console.log("dataType: ", dataType)
+        const label = dataType === 'node' ? params.data.name : dataType === 'edge' ? params.data.target : '';
         console.log("params.data.name: ", params.data.name)
         console.log("params.data.target: ", params.data.target)
-        const dataType = params.dataType;
-        const label = dataType === 'node' ? params.data.name : dataType === 'edge' ? params.data.target : '';
 
         console.log("dimension.key: ", dimension.key)
         const key = dimension.key;
