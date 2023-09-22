@@ -1,4 +1,5 @@
 var getScriptPromisify = (src) => {
+  console.log(src)
   return new Promise((resolve) => {
     $.getScript(src, resolve);
   });
@@ -143,17 +144,26 @@ var getScriptPromisify = (src) => {
 
       const that = this;
       this._echart.on('click', (params) => {
+        console.log("params: ", params)
+        console.log("dataType: ", dataType)
+        console.log("params.data.name: ", params.data.name)
+        console.log("params.data.target: ", params.data.target)
         const dataType = params.dataType;
         const label = dataType === 'node' ? params.data.name : dataType === 'edge' ? params.data.target : '';
 
+        console.log("dimension.key: ", dimension.key)
         const key = dimension.key;
+        console.log("dimensionId: ", dimensionId.id)
         const dimensionId = dimension.id;
         const selectedItem = dataBinding.data.find(item => item[key].label === label);
+        console.log("selectedItem: ", selectedItem)
 
         const linkedAnalysis = props['dataBindings'].getDataBinding('dataBinding').getLinkedAnalysis();
         if (selectedItem) {
           const selection = {};
           selection[dimensionId] = selectedItem[key].id;
+          console.log("selectedItem[key].id: ", selectedItem[key].id)
+          console.log("selection: ", selection)
           linkedAnalysis.setFilters(selection)
         } else {
           linkedAnalysis.removeFilters();
