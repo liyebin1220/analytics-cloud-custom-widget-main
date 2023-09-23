@@ -18,7 +18,7 @@ var getScriptPromisify = (src) => {
       const measure = measuresMap[key]
       measures.push({ key, ...measure })
     }
-
+    console.log(metadata)
     console.log(dimensions)
     console.log(measures)
     console.log(dimensionsMap)
