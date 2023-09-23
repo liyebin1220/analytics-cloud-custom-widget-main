@@ -152,10 +152,13 @@ var getScriptPromisify = (src) => {
         console.log("params.data.name: ", params.data.name)
         console.log("params.data.target: ", params.data.target)
 
-        console.log("dimension.key: ", dimension.key)
+        
         const key = dimension.key;
-        console.log("dimensionId: ", dimensionId.id)
+        console.log("dimension.key: ", dimension.key)
+        
         const dimensionId = dimension.id;
+        console.log("dimension.id: ", dimension.id)
+        
         const selectedItem = dataBinding.data.find(item => item[key].label === label);
         console.log("selectedItem: ", selectedItem)
 
