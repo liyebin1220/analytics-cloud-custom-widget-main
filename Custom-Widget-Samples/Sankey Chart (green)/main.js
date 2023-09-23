@@ -18,6 +18,11 @@ var getScriptPromisify = (src) => {
       const measure = measuresMap[key]
       measures.push({ key, ...measure })
     }
+
+    console.log(dimensions)
+    console.log(measures)
+    console.log(dimensionsMap)
+    console.log(measuresMap)
     return { dimensions, measures, dimensionsMap, measuresMap }
   }
 
@@ -158,14 +163,14 @@ var getScriptPromisify = (src) => {
         
         const dimensionId = dimension.id;
         console.log("dimension.id: ", dimension.id)
-        
+
         const selectedItem = dataBinding.data.find(item => item[key].label === label);
         console.log("selectedItem: ", selectedItem)
 
         const linkedAnalysis = props['dataBindings'].getDataBinding('dataBinding').getLinkedAnalysis();
         if (selectedItem) {
           const selection = {};
-          selection[dimensionId] = selectedItem[key].id;
+          selection[dimensionId] = selectedItem[key].id; //Creating an Object and grant a value selectedItem[key].id to item "dimensionId": product
           console.log("selectedItem[key].id: ", selectedItem[key].id)
           console.log("selection: ", selection)
           linkedAnalysis.setFilters(selection)
